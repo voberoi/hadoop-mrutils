@@ -10,7 +10,8 @@ import commands
 
 from BeautifulSoup import BeautifulSoup
 
-CMDS = ["sudo yum install R"]
+MASTER_CMDS = ["sudo apt-get install r-base cowsay fortune"]
+SLAVE_CMDS = ["sudo apt-get install r-base"]
 MACHINES_URL = "http://localhost:9100/machines.jsp"
 KEYPAIR_FILE = sys.argv[1]
 
