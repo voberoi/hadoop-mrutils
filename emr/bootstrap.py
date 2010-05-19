@@ -12,7 +12,7 @@ from BeautifulSoup import BeautifulSoup
 
 CMDS = ["sudo yum install R"]
 MACHINES_URL = "http://localhost:9100/machines.jsp"
-KEYPAIR_FILE = "./emr-keypair.pem"
+KEYPAIR_FILE = sys.argv[1]
 
 # Get all the slave node URLs.
 cmd = "curl %s" % MACHINES_URL
@@ -27,7 +27,7 @@ for tr in doc.table.findAll("tr")[2:]:
 # Set up slave nodes.
 for slave in slaves:
     for cmd in CMDS:
-        cmd = "ssh -o StrictHostKeyChecking=no -i %s hadoop@%s '%s'" % (cmd)
+        cmd = "ssh -o StrictHostKeyChecking=no -i %s hadoop@%s '%s'" % (KEYPAIR_FILE, slave, cmd)
         print cmd
         status, output = commands.getstatusoutput(cmd)
     

@@ -8,8 +8,6 @@ import sys
 import glob
 import shutil
 
-DEFAULT_S3_DIR = "scripts"
-
 def prepare_pig_script(path, s3_dir):
     script = open(path).read()
     
@@ -26,15 +24,12 @@ def prepare_pig_script(path, s3_dir):
     open(path, "w").write(script)
 
 if __name__ == '__main__':
-    deploy_dir = sys.argv[1]
-    s3_dir = DEFAULT_S3_DIR
-    if len(sys.argv > 2):
-        s3_dir = sys.argv[2]
+    deploy_dir, s3_dir = sys.argv[1:3]
 
     for root, dirs, files in os.walk(deploy_dir):
         for file in files:
             if file.endswith(".pig"): prepare_pig_script(os.path.join(root, file))
     
     # Sync scripts and jar files.
-    cmd = "s3cmd sync %s s3://scripts/" % deploy_dir
+    cmd = "s3cmd sync %s s3://%s/" % (deploy_dir, s3_dir)
     os.system(cmd)

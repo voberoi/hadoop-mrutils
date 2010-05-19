@@ -1,0 +1,44 @@
+Terminology
+-----------
+S3: Simple Storage Service
+EC2: Elastic Compute Cloud
+EMR: Elastic MapReduce
+
+Sign up for AWS
+---------------
+Create an account and sign up for S3, EC2, and EMR.
+
+Install s3cmd
+-------------
+This is a handy dandy S3 command-line tool.
+
+To install, do either of:
+1) sudo apt-get/yum install s3cmd on Debian/Red Hat systems
+2) Install from the s3cmd website, http://s3tools.org/s3cmd
+   a) Download s3cmd
+   b) Place it in your homedir, /home/{USERNAME}/s3cmd
+   c) In .bashrc or .bash_profile, add the s3cmd dir to your path.
+
+Configure s3cmd
+---------------
+Run 's3cmd --configure'. You can find credentials you need on your AWS account page.
+
+Install the EMR ruby client
+---------------------------
+This is a handy dandy EMR command-line tool.
+
+To install:
+1) Download from: http://developer.amazonwebservices.com/connect/entry.jspa?externalID=2264
+2) Place it in your homedir, /home/{USERNAME}/elastic-mapreduce
+3) In .bashrc or .bash_profile, add the elastic-mapreduce dir to your path.
+4) (optional) Add an alias. Mine's 'alias emr="elastic-mapreduce"'.
+
+Configure the EMR ruby client
+-----------------------------
+See the instructions on http://developer.amazonwebservices.com/connect/entry.jspa?externalID=2264.
+Any credentials you need you can find on your AWS account page.
+
+Script help
+-----------
+I've tried to document and have decent usage docs where it'd be useful. Just run the script
+without any args or with "--help" and it should spit out a help message.

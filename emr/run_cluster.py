@@ -48,15 +48,15 @@ def bootstrap_cluster(name, key_pair_file, s3_config):
         if status != 0: raise Exception("`%s` exited with status %d and the following output:\n%s" % (cmd, status, output))
 
     # Run bootstrap.py on the master.
-    cmd = "ssh -o StrictHostKeyChecking=no -i %s hadoop@%s 'python ./bootstrap.py'" % (key_pair_file, master_url)
+    cmd = "ssh -o StrictHostKeyChecking=no -i %s hadoop@%s 'python ./bootstrap.py %s'" % (key_pair_file, master_url, key_pair_file)
     print cmd
     status, output = commands.getstatusoutput(cmd)
     if status != 0: raise Exception("`%s` exited with status %d and the following output:\n%s" % (cmd, status, output))
 
 if __name__ == '__main__':
     parser = OptionParser(usage="%prog [OPTIONS] NAME NUM_INSTANCES", description="Runs a cluster on EMR called NAME containing NUM_INSTANCES instances.")
-    parser.set_defaults(instance_type="m1.large", log_uri="s3://emr-logs", key_pair_file=os.environ.get("EMR_KEYPAIR"), s3_config=os.path.join(os.path.expanduser("~"), ".s3cfg"))
-    parser.add_option("-t", "--instance-type", dest="instance_type", help="The type of instances you want in the cluster. Defaults to m1.large")
+    parser.set_defaults(instance_type="m1.small", log_uri="s3://emr-logs", key_pair_file=os.environ.get("EMR_KEYPAIR"), s3_config=os.path.join(os.path.expanduser("~"), ".s3cfg"))
+    parser.add_option("-t", "--instance-type", dest="instance_type", help="The type of instances you want in the cluster. Defaults to m1.small")
     parser.add_option("-l", "--log-uri", dest="log_uri", help="The MapReduce log uri. Defaults to s3://emr-logs")
     parser.add_option("-k", "--key-pair-file", dest="key_pair_file", help="The EC2 keypair file. Defaults to the EMR_KEYPAIR environment variable, throwing an error if neither the option nor variable are set")
     parser.add_option("-s", "--s3-config", dest="s3_config", help="The path to .s3cfg for s3cmd. Defaults to ~/.s3cfg")
