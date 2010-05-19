@@ -6,6 +6,7 @@
 # emr/run_cluster.py should take care of these dependencies.
 
 import os
+import sys
 import commands
 
 from BeautifulSoup import BeautifulSoup
