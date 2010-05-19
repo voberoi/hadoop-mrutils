@@ -1,0 +1,5 @@
+Starting a job flow:
+elastic-mapreduce --create --alive --name testing --num-instances 5 --instance-type m1.large --log-uri s3://emr-logs
+
+Running a pig job:
+elastic-mapreduce --jobflow j-2GWGNFT06JGN1 --pig-script --args --param,DOC=s3://data/shakespeare --args --param,OUTPUT=s3://test/word-count-output --args s3://scripts/word-count.pig
