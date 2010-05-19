@@ -52,3 +52,14 @@ Script help
 -----------
 I've tried to document and have decent usage docs where it'd be useful. Just run the script
 without any args or with "--help" and it should spit out a help message.
+
+Miscellanea
+-----------
+I'm going to start off by creating a few S3 buckets to store data, code, and results in. It turns
+out that the S3 namespace is shared by all its users, so it's probably good practice to prefix your
+S3 buckets with your name/initials/something more creative if those buckets aren't available.
+Mine are:
+
+s3://voberoi-data
+s3://voberoi-results
+s3://voberoi-scripts
