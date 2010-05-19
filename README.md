@@ -11,6 +11,5 @@ feel free to use and repurpose them for whatever you want.
 
 * `emr/` contains a bunch of helper scripts to spin up clusters, deploy code
 to S3, and run jobs on Elastic MapReduce.
-
 * `scripts/` contains a bunch of example code to demonstrate writing jobs using
 Hadoop streaming and Pig.
