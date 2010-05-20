@@ -4,7 +4,7 @@
  * A Pig script that counts the frequency of all words in $INPUT.
  */
 
-REGISTER ./udfs.jar
+REGISTER ./udfs.jar;
 
 lines = LOAD '$INPUT' USING PigStorage();
 words = FOREACH lines GENERATE FLATTEN(TOKENIZE($0));
