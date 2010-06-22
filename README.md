@@ -5,9 +5,13 @@
 This is a collection of my helper scripts for running jobs on Elastic MapReduce
 and example code to get started with Hadoop streaming and Pig jobs. I put all 
 these together for a workshop at Noisebridge's Machine Learning meetup, so
-they're rather Noisebridge-specific at times.
+they're rather Noisebridge-specific at times. 
 
-Feel free to use and repurpose all this code for whatever you want.
+This might turn into a curated repository of generally useful and/or interesting
+examples some day. In the meantime, though, it's all ad hoc and slapped together.
+
+Feel free to use and repurpose all this code for whatever you want. The Elastic
+MapReduce scripts in particular are very useful if you're using AWS.
 
 ### What's in here? ###
 
